@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.boxo {
+    height: 50vh;
+    width: 100%;
+}
+
+.helo {
+    background-image: url("../public/abt.jpg"); /* The image used */
+    background-color: #cccccc; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+  }
+
+@media (min-width: 768px) {
+    .boxo {
+        height: 70vh;
+        width: 110%;
+    }
+}
+
+@layer components{
+    .icon {
+        @apply mt-3 mr-4 text-2xl bg-black text-orange-400;
+    }
+}
