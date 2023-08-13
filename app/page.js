@@ -165,7 +165,7 @@ async function ProgressBar() {
 }
 
 async function Projects() {
-  const res = await fetch(`https://meheer.vercel.app/api/projects?limit=2`,{ next: { revalidate: 10 } });
+  const res = await fetch(`https://meheer.vercel.app/api/projects?limit=3`,{ next: { revalidate: 10 } });
   const post = await res.json();
   const projects = post.data 
   
