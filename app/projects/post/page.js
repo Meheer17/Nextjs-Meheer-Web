@@ -131,7 +131,7 @@ export default function NewProject() {
     
                     <div className="p-10 drop-shadow-xl ">
                         <form className="mx-auto max-w-5xl text-lg bg-zinc-300 p-5 border-2 border-slate-900 rounded-md" onSubmit={handleSubmit}>
-                            {/* <Upload/> */}
+                            <Upload/>
                             <div className="mb-6">
                                 <label className="block mb-2 font-medium text-gray-900 ">Title</label>
                                 <input onChange={handleChange} value={form.title} type="text" id="title" name='title' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />

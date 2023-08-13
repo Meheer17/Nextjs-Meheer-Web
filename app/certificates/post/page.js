@@ -127,7 +127,7 @@ export default function NewCert() {
     
                     <div className="p-10 drop-shadow-xl text-gray-900 font-extrabold ">
                         <form className="mx-auto max-w-5xl p-5 border-2 bg-zinc-300 border-slate-900 rounded-md text-lg" onSubmit={handleSubmit}>
-                            {/* <Upload/> */}
+                            <Upload/>
                             <div className="mb-6">
                                 <label className="block mb-2 font-medium">Title</label>
                                 <input onChange={handleChange} value={form.title} type="text" id="title" name='title' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
