@@ -1,7 +1,6 @@
 import Image from "next/legacy/image";
 import Link from 'next/link'
 import Contact from '@/components/contactme'
-import data from '@/utils/projdata'
 
 export const metadata = {
   title: 'Portfolio Website: Meheer',

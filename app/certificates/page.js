@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/legacy/image";
-import datac from "@/utils/certdata";
 
 export const revalidate = 10;
 
