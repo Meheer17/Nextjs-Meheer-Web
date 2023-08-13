@@ -1,9 +1,10 @@
 import Image from "next/legacy/image";
 import Link from 'next/link'
-import data from '@/utils/projdata'
 
 export default async function Projects({params}) {
-    var projects = await data()
+    const res = await fetch(`https://meheer.vercel.app/api/projects`,{ next: { revalidate: 10 } });
+    const post = await res.json();
+    const projects = post.data 
     const ntype = params.tag
 
     const skillset = []
