@@ -13,7 +13,7 @@ export default function Index() {
       <Intro/>
       <AbtMe/>
       <Skills/>
-      <Projects/>
+      {/* <Projects/> */}
       <Contact/>
     </ div>
   )
@@ -114,101 +114,101 @@ function Skills() {
 }
 
 
-async function ProgressBar() {
-  const res = await fetch(`https://meheer.vercel.app/api/projects`,{ next: { revalidate: 10 } });
-  const post = await res.json();
-  const projects = post.data 
-  const count = {}
-  const skillset = []
-  const skillRatio = {}
+// async function ProgressBar() {
+//   const res = await fetch(`https://meheer.vercel.app/api/projects`,{ next: { revalidate: 10 } });
+//   const post = await res.json();
+//   const projects = post.data 
+//   const count = {}
+//   const skillset = []
+//   const skillRatio = {}
   
-  for(let i = 0; i < projects.length; i++ ) {
-    for(let t = 0; t < projects[i].tags.length; t++ ) {
-      if(skillset.includes(projects[i].tags[t])){
-        skillRatio[projects[i].tags[t]] += 1
-      } else {
-        skillset.push(projects[i].tags[t])
-        skillRatio[projects[i].tags[t]] = 1
-      }
-    }
-  }
+//   for(let i = 0; i < projects.length; i++ ) {
+//     for(let t = 0; t < projects[i].tags.length; t++ ) {
+//       if(skillset.includes(projects[i].tags[t])){
+//         skillRatio[projects[i].tags[t]] += 1
+//       } else {
+//         skillset.push(projects[i].tags[t])
+//         skillRatio[projects[i].tags[t]] = 1
+//       }
+//     }
+//   }
   
-  for(let i = 0; i < skillset.length; i++) {
-    count[skillset[i]] = (skillRatio[skillset[i]] / projects.length) * 100 
-  }
+//   for(let i = 0; i < skillset.length; i++) {
+//     count[skillset[i]] = (skillRatio[skillset[i]] / projects.length) * 100 
+//   }
 
-  return (
-    <>
-      <div className='md:p-24 px-12 pb-10 font-mono' data-aos="fade-up" data-aos-delay="100">
-        <h1 className='text-6xl text-white my-5'>Projects Skill Ratio</h1>
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 grid-cols-1'>
-            {skillset.map(s => {
-              return (
-                <>
-                  <Link href={`/projects/${s}`} id={s}>
+//   return (
+//     <>
+//       <div className='md:p-24 px-12 pb-10 font-mono' data-aos="fade-up" data-aos-delay="100">
+//         <h1 className='text-6xl text-white my-5'>Projects Skill Ratio</h1>
+//         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 grid-cols-1'>
+//             {skillset.map(s => {
+//               return (
+//                 <>
+//                   <Link href={`/projects/${s}`} id={s}>
 
-                    <div className="mb-1 text-xl text-slate-400 font-bold capitalize">{s +" - "+ Math.floor(count[s]) + "%"}</div>
-                    <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
-                      <div className="bg-orange-500 h-4 rounded-full" style={{width: `${count[s]}%`}}></div>
-                    </div>
+//                     <div className="mb-1 text-xl text-slate-400 font-bold capitalize">{s +" - "+ Math.floor(count[s]) + "%"}</div>
+//                     <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
+//                       <div className="bg-orange-500 h-4 rounded-full" style={{width: `${count[s]}%`}}></div>
+//                     </div>
 
-                  </Link>
-                </>
-              )
-            })}
-        </div>
-      </div>
-    </>
-  )
+//                   </Link>
+//                 </>
+//               )
+//             })}
+//         </div>
+//       </div>
+//     </>
+//   )
 
-}
+// }
 
-async function Projects() {
-  const res = await fetch(`https://meheer.vercel.app/api/projects?limit=2`,{ next: { revalidate: 10 } });
-  const post = await res.json();
-  const projects = post.data 
+// async function Projects() {
+//   const res = await fetch(`https://meheer.vercel.app/api/projects?limit=2`,{ next: { revalidate: 10 } });
+//   const post = await res.json();
+//   const projects = post.data 
   
-  return <>
-    <div className='grid md:grid-cols-2 gap-5 grid-cols-1 md:p-16 p-5' data-aos="fade-up" data-aos-delay="100">
-      <div className='grid grid-rows-1'>
+//   return <>
+//     <div className='grid md:grid-cols-2 gap-5 grid-cols-1 md:p-16 p-5' data-aos="fade-up" data-aos-delay="100">
+//       <div className='grid grid-rows-1'>
         
-        <div>
-          <h1 className='text-slate-500'>MY PROJECTS</h1>
-          <h1 className='text-6xl text-white mb-4'>Work I've done over the past 2 years!</h1>
-        </div>
+//         <div>
+//           <h1 className='text-slate-500'>MY PROJECTS</h1>
+//           <h1 className='text-6xl text-white mb-4'>Work I've done over the past 2 years!</h1>
+//         </div>
 
-        <div className=' duration-300 mt-3 text-white md:hover:scale-110 md:hover:z-30 md:hover:text-blue-400'>
-          <Link href={`/projects/view/${projects[0].ranid}`} >
-          <div key={projects[0]._id} className="bg-gray-900  duration-300 rounded-xl w-full">
-            <Image src={projects[0].image} className="rounded-xl z-10" height={500} width={1000} priority/>
-            <div className='p-3'>
-              <h1 className="font-extrabold text-2xl text-center">{projects[0].title}</h1>
-            </div>
-          </div>
-          </Link>
-        </div>
-      </div>
+//         <div className=' duration-300 mt-3 text-white md:hover:scale-110 md:hover:z-30 md:hover:text-blue-400'>
+//           <Link href={`/projects/view/${projects[0].ranid}`} >
+//           <div key={projects[0]._id} className="bg-gray-900  duration-300 rounded-xl w-full">
+//             <Image src={projects[0].image} className="rounded-xl z-10" height={500} width={1000} priority/>
+//             <div className='p-3'>
+//               <h1 className="font-extrabold text-2xl text-center">{projects[0].title}</h1>
+//             </div>
+//           </div>
+//           </Link>
+//         </div>
+//       </div>
       
-      <div className='grid grid-cols-1'>
-        <div className=' mt-3 duration-300 text-white md:hover:scale-110 md:hover:z-30 md:hover:text-blue-400'>
-          <Link href={`/projects/view/${projects[1].ranid}`} >
-          <div key={projects[1]._id} className="bg-gray-900 rounded-xl w-full">
-            <Image src={projects[1].image} className="rounded-xl z-10" height={500} width={1000} priority/>
-            <div className='p-3'>
-              <h1 className="font-extrabold text-2xl text-center">{projects[1].title}</h1>
-            </div>
-          </div>
-          </Link>
-        </div>
+//       <div className='grid grid-cols-1'>
+//         <div className=' mt-3 duration-300 text-white md:hover:scale-110 md:hover:z-30 md:hover:text-blue-400'>
+//           <Link href={`/projects/view/${projects[1].ranid}`} >
+//           <div key={projects[1]._id} className="bg-gray-900 rounded-xl w-full">
+//             <Image src={projects[1].image} className="rounded-xl z-10" height={500} width={1000} priority/>
+//             <div className='p-3'>
+//               <h1 className="font-extrabold text-2xl text-center">{projects[1].title}</h1>
+//             </div>
+//           </div>
+//           </Link>
+//         </div>
 
-          <div className='flex justify-center mt-10'>
-            <h1 className='text-white'><Link href={'/projects/all'} className='md:text-2xl text-sm text-white p-3 border-2 duration-500  border-sky-300 md:hover:bg-sky-400 md:hover:text-gray-900 rounded'>VIEW ALL PROJECTS</Link></h1>
-          </div>
+//           <div className='flex justify-center mt-10'>
+//             <h1 className='text-white'><Link href={'/projects/all'} className='md:text-2xl text-sm text-white p-3 border-2 duration-500  border-sky-300 md:hover:bg-sky-400 md:hover:text-gray-900 rounded'>VIEW ALL PROJECTS</Link></h1>
+//           </div>
 
-        </div>
+//         </div>
 
-    </div>
-    <ProgressBar/>
+//     </div>
+//     <ProgressBar/>
 
-  </>;
-}
+//   </>;
+// }
