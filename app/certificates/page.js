@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Image from "next/legacy/image";
 
-export const revalidate = 10;
-
 export default async function Certificates() {
   const res = await fetch(`https://meheer.vercel.app/api/certificates`,{ next: { revalidate: 10 } });
   const post = await res.json();
