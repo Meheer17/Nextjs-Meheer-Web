@@ -69,7 +69,7 @@ function Skills() {
           <div className='text-white grid gap-10 grid-rows-2'>
             <div className='md:hover:scale-110 '>
               <div className='text-4xl md:hover:scale-110 transition ease-in-out'>
-                {/* asd */}
+                <Image src={'/coding.png'} alt={'coding'} height={50} width={50} priority/>
               </div>
               <p className='text-2xl'>Web Developemnt</p>
               <div className='text-slate-500'>
@@ -78,7 +78,7 @@ function Skills() {
             </div>
             <div className='md:hover:scale-110'>
               <div className='text-4xl md:hover:scale-110 transition ease-in-out'>
-                {/* <FontAwesomeIcon className=' bg-black text-green-400' icon={faNodeJs} /> */}
+                <Image src={'/backend.png'} alt={'backend'} height={50} width={50} priority/>
               </div>
               <p className='text-2xl'>BackEnd Developemnt</p>
               <div className='text-slate-500'>
@@ -90,7 +90,7 @@ function Skills() {
           <div className='text-white grid gap-10 grid-rows-2'>
             <div className='md:hover:scale-110'>
               <div className='text-4xl transition ease-in-out md:hover:scale-110'>
-                {/* <FontAwesomeIcon className=' bg-black text-green-400' icon={faEnvira} /> */}
+                <Image src={'/api.png'} alt={'api'} height={50} width={50} priority/>
               </div>
               <p className='text-2xl'>Api Development</p>
               <div className='text-slate-500'>
@@ -99,7 +99,7 @@ function Skills() {
             </div>
             <div className='md:hover:scale-110'>
               <div className='text-4xl transition ease-in-out md:hover:scale-110'>
-                {/* <FontAwesomeIcon className=' bg-black text-blue-400' icon={faBookOpenReader} /> */}
+                <Image src={'/self-learning.png'} alt={'self-learning'} height={50} width={50} priority/>
               </div>
               <p className='text-2xl'>Self Learning</p>
               <div className='text-slate-500'>
@@ -180,7 +180,7 @@ async function Projects() {
         <div className=' duration-300 mt-3 text-white md:hover:scale-110 md:hover:z-30 md:hover:text-blue-400'>
           <Link href={`/projects/view/${projects[0].ranid}`} >
           <div key={projects[0]._id} className="bg-gray-900  duration-300 rounded-xl w-full">
-            <Image src={projects[0].image} className="rounded-xl z-10" height={500} width={1000} priority/>
+            <Image src={projects[0].image}  alt={projects[0].title} className="rounded-xl z-10" height={500} width={1000} priority/>
             <div className='p-3'>
               <h1 className="font-extrabold text-2xl text-center">{projects[0].title}</h1>
             </div>
@@ -193,7 +193,7 @@ async function Projects() {
         <div className=' mt-3 duration-300 text-white md:hover:scale-110 md:hover:z-30 md:hover:text-blue-400'>
           <Link href={`/projects/view/${projects[1].ranid}`} >
           <div key={projects[1]._id} className="bg-gray-900 rounded-xl w-full">
-            <Image src={projects[1].image} className="rounded-xl z-10" height={500} width={1000} priority/>
+            <Image src={projects[1].image} alt={projects[1].title} className="rounded-xl z-10" height={500} width={1000} priority/>
             <div className='p-3'>
               <h1 className="font-extrabold text-2xl text-center">{projects[1].title}</h1>
             </div>
