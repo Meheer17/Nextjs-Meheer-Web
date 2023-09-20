@@ -1,6 +1,11 @@
 import Contact from '@/components/contactme'
 import Image from 'next/legacy/image'
 
+export const metadata = {
+    title: 'About Meheer',
+    description: 'About Meheer',
+  }
+
 export default function AboutMe() {
     return (
         <>

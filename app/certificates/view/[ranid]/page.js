@@ -4,6 +4,11 @@ import { Editbutton } from './editbutton';
 import { useRouter } from 'next/navigation';
 import Sidebar from '@/components/certsidebar';
 
+export const metadata = {
+    title: 'Certificate: Meheer',
+    description: 'Certificate: Meheer',
+  }
+
 export default async function ViewProject({params}){
     
     const { ranid } = params
@@ -16,10 +21,10 @@ export default async function ViewProject({params}){
     if(details){
         return (
             <div className='flex flex-row'>
-                <div className='basis-1/5 rounded-xl pt-32 p-4 overflow-y-auto h-screen' style={{backgroundColor:"rgba(24,24,35,1)"}}>
+                <div className='md:basis-1/5 hidden md:block rounded-xl pt-32 p-4 overflow-y-auto h-screen' style={{backgroundColor:"rgba(24,24,35,1)"}}>
                     <Sidebar/>
                 </div>
-                <div className='basis-4/5 h-screen overflow-y-auto'>
+                <div className='md:basis-4/5 h-screen overflow-y-auto'>
                     <section className='py-32 mx-auto max-w-3xl p-4'>
                         <div className='text-center text-white text-5xl mb-10'>{details.title}</div>
                         <div>

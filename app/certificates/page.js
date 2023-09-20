@@ -3,6 +3,11 @@ import Image from "next/legacy/image";
 
 export const revalidate = 10;
 
+export const metadata = {
+  title: 'Meheer\'s Certificates ',
+  description: 'All the certifications I have recieved so far.',
+}
+
 export default async function Certificates() {
   const res = await fetch(`https://meheer.vercel.app/api/certificates`,{ next: { revalidate: 10 } });
   const post = await res.json();

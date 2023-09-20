@@ -1,6 +1,11 @@
 import Image from "next/legacy/image";
 import Link from 'next/link'
 
+export const metadata = {
+    title: 'Meheer\'s Projects',
+    description: 'All the projects I have created so dat in these amazing days.',
+  }
+
 export default async function Projects({params}) {
     const res = await fetch(`https://meheer.vercel.app/api/projects`,{ next: { revalidate: 10 } });
     const post = await res.json();
