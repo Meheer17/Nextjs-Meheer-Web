@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata = {
     title: 'Meheer\'s Projects',
-    description: 'All the projects I have created so dat in these amazing days.',
+    description: 'All the projects I have created so far.',
   }
 
 export default async function Projects({params}) {

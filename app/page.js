@@ -5,6 +5,10 @@ import Contact from '@/components/contactme'
 export const metadata = {
   title: 'Portfolio Website: Meheer',
   description: 'Portfolio website: Meheer',
+  keywords: {
+    default: ['Meheer J', 'Meheer', 'Meher', 'Meher J', 'Meheer Website', 'Meheer portfolio', 'Meher Website'],
+    template: [ '%s']
+  },
 }
 
 export default function Index() {
@@ -42,13 +46,17 @@ function AbtMe() {
     <>
       <div className="bg-amber-50 grid md:grid-cols-2 grid-cols-1" data-aos="fade-up" data-aos-delay="100">
         <div className='p-12'>
-          <div>
-            <p className='text-5xl font-black text-black'>Values And Beliefs </p>
-            <p className='text-2xl font-bold mt-3 text-gray-500'>I believe in hard work, sincerity, dedication and persistance and follow these principles diligently.
-These are the values which push me forward towards achieving success.</p>
+          <div className="inline-block">
+            <p className='text-5xl font-black text-black'>Summary</p>
+            <p className='text-2xl font-bold mt-3 text-gray-500'>Enthusiastic, dedicated, and reliable computer engineering student with a specialization in backend development, and embodying the principles of hard work, sincerity, dedication, and persistence. Driven by self-teaching and passion for the subject, pushes me forward towards achieving success. I exhibit my keen interest in the realm of Software Engineering.</p>
           </div>
-          <div className='mt-16'>
-            <Link href={'/aboutme'} className="underline text-2xl font-extrabold md:hover:no-underline underline-offset-8 md:hover:bg-sky-500 p-3 rounded">About Me</Link>
+          <div className='mt-12 flex w-full'>
+            <div className="mx-auto">
+              <Link href={'/aboutme'} className="underline text-2xl font-extrabold md:hover:no-underline underline-offset-8 md:hover:bg-sky-500 p-3 rounded">About Me</Link>
+            </div>
+            <div className="mx-auto">
+              <Link href={'/aboutme/cv'} className="underline text-2xl font-extrabold md:hover:no-underline underline-offset-8 md:hover:bg-sky-500 p-3 rounded">Resume</Link>
+            </div>
           </div>
         </div>
           <Image src={"/new.jpg"} height={1080} width={1920}/>
