@@ -10,10 +10,13 @@ export default async function AboutMe() {
     const res = await fetch(`https://meheer.vercel.app/api/certificates`,{ next: { revalidate: 10 } });
     const post = await res.json();
     const projects = post.data 
+    const res1 = await fetch(`https://meheer.vercel.app/api/projects`,{ next: { revalidate: 10 } });
+    const post1 = await res1.json();
+    const projects1 = post1.data 
     return (
         <>
             <div className='py-24 min-h-screen'>
-                <div className='bg-white mt-5 max-w-5xl rounded-lg p-5 mx-auto w-full'>
+                <div className='bg-slate-300 mt-5 max-w-5xl rounded-lg p-5 mx-auto w-full'>
                     <div className='text-center text-5xl font-extrabold'>Meheer J</div>
                     <div className='text-center text-xl font-medium'>Bangalore  560076</div>
                     <div className='text-center text-xl font-medium'>
@@ -21,7 +24,7 @@ export default async function AboutMe() {
                     </div>
 
                     <div className='text-lg mt-3'>
-                        <div className='font-bold text-xl mb-2 underline'>Summary</div>
+                        <div className='font-bold text-xl mb-2 underline'>Objective</div>
                         <div className='indent-7'>
                             Enthusiastic, dedicated, and reliable computer engineering student with a specialization in backend 
                             development, and embodying the principles of hard work, sincerity, dedication, and persistence. 
@@ -36,12 +39,39 @@ export default async function AboutMe() {
                             </div>
                             <div>Computer Science Engineering (B.E)</div>
                             <div>Specialization in Artificial Intelligence</div>
+                            <br/>
+                            <div className='font-semibold'>Relavent Coursework: </div>
+                            <ul className='list-disc list-inside'>
+                                <li>Web Development Fundamentals</li>
+                                <li>Database Design and Implementation</li>
+                                <li>Object-Oriented Programming</li>
+                                <li>Frontend and Backend Development (FullStack)</li>
+
+                            </ul>
                         </div>
 
                         <div className='font-bold text-xl mt-7 mb-2 underline'>Skills</div>
                         <div className='indent-3'>
-                        Python, C, C++, JavaScript, Tailwindcss, Vercel, MongoDB, Amazon S3 Buckets, SQL, NoSQL, Node.js, React, Next.Js
+                        Python, C, C++,HTML5, CSS3, JavaScript (ES6+), Tailwindcss, Vercel, MongoDB, Amazon S3 Buckets, SQL, NoSQL, Node.js, Express.js, RESTful API development, Git, Npm, Pip, React, Next.Js
                         </div>
+
+
+                        <div className='font-bold text-xl mt-7 mb-2 underline'>Work Experience</div>
+                        <ol className='list-decimal px-10'>
+                            <li>
+                                <div className='flex justify-between'>
+                                    <span className='font-bold'>Project Developer, Global Affairs Desk, India</span>
+                                    <span className='font-semibold'>Summer 2023</span>
+                                </div>
+                                <ul class="list-disc list-inside">
+                                    <li>Led end-to-end development of a dynamic Blog Website tasked with transforming the client's version into reality. This project aimed to give authorized writers post blogs on various issues through an unbiased lens.</li>    
+                                    <li>Designed the entire website on Next.js Framework and the back end using Serverless Node.js runtime as data streaming would be easy throughout the website.</li>
+                                    <li>Applied the Node.js framework and used the Next-Auth with Google Oauth2 for Authentication of Users to comment on Blogs and let the writers to post and edit Blogs.</li>
+                                    <li>Implemented the framework using MongoDB and Amazon S3 Buckets for storing the data and images.</li>    
+                                    <li>Finally, tested the API endpoints by creating, deleting, and Editing Blogs.</li>
+                                </ul>
+                            </li>
+                        </ol>
 
                         <div className='font-bold text-xl mt-7 mb-2 underline'>Relavant Projects</div>
                         <ol className='list-decimal px-10'>
@@ -82,23 +112,6 @@ export default async function AboutMe() {
                             </li>
                         </ol>
 
-                        <div className='font-bold text-xl mt-7 mb-2 underline'>Work Experience</div>
-                        <ol className='list-decimal px-10'>
-                            <li>
-                                <div className='flex justify-between'>
-                                    <span className='font-bold'>Project Developer, Global Affairs Desk, India</span>
-                                    <span className='font-semibold'>Summer 2023</span>
-                                </div>
-                                <ul class="list-disc list-inside">
-                                    <li>Led end-to-end development of a dynamic Blog Website tasked with transforming the client's version into reality. This project aimed to give authorized writers post blogs on various issues through an unbiased lens.</li>    
-                                    <li>Designed the entire website on Next.js Framework and the back end using Serverless Node.js runtime as data streaming would be easy throughout the website.</li>
-                                    <li>Applied the Node.js framework and used the Next-Auth with Google Oauth2 for Authentication of Users to comment on Blogs and let the writers to post and edit Blogs.</li>
-                                    <li>Implemented the framework using MongoDB and Amazon S3 Buckets for storing the data and images.</li>    
-                                    <li>Finally, tested the API endpoints by creating, deleting, and Editing Blogs.</li>
-                                </ul>
-                            </li>
-                        </ol>
-
                         <div className='font-bold text-xl mt-7 mb-2 underline'>Leadership</div>
                         <ol className='list-decimal px-10'>
                             <li>
@@ -113,6 +126,19 @@ export default async function AboutMe() {
                                 </ul>
                                 </li>
                         </ol>
+
+                        <div className='font-bold text-xl mt-7 mb-2 underline'>More Projects</div>
+                        <ul className='list-disc list-inside px-5'>
+                            {
+                                projects1.reverse().map((pr) => {
+                                    if (pr.pri < 3){
+                                        return(
+                                            <li><Link href={`/projects/view/${pr.ranid}`}>{pr.title}</Link></li>
+                                        )
+                                    }
+                                })
+                            }
+                        </ul>
 
                         <div className='font-bold text-xl mt-7 mb-2 underline'>Certificates</div>
                         <ul className='list-disc list-inside px-5'>

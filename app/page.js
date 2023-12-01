@@ -55,7 +55,7 @@ function AbtMe() {
               <Link href={'/aboutme'} className="underline text-2xl font-extrabold md:hover:no-underline underline-offset-8 md:hover:bg-sky-500 p-3 rounded">About Me</Link>
             </div>
             <div className="mx-auto">
-              <Link href={'/aboutme/cv'} className="underline text-2xl font-extrabold md:hover:no-underline underline-offset-8 md:hover:bg-sky-500 p-3 rounded">Resume</Link>
+              <Link href={'/aboutme/cv'} className="underline text-2xl font-extrabold md:hover:no-underline underline-offset-8 md:hover:bg-sky-500 p-3 rounded">CV</Link>
             </div>
           </div>
         </div>
