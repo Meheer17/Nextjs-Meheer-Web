@@ -17,6 +17,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <meta name="google-site-verification" content="CKoJ1VHu8UnDlXxQ4ULZhz-1kPirZ-wQFBg-QpfDp9Q" />
       <body className="bg-black overflow-x-hidden">
         <Navbar/>
         <div className='min-h-screen '>

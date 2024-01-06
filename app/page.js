@@ -6,7 +6,7 @@ export const metadata = {
   title: 'Portfolio Website: Meheer',
   description: 'Portfolio website: Meheer',
   keywords: {
-    default: ['Meheer J', 'Meheer', 'Meher', 'Meher J', 'Meheer Website', 'Meheer portfolio', 'Meher Website'],
+    default: ['Meheer J', "Maher", "Maheer",'Meheer', 'Meher', 'Meher J', 'Meheer Website', 'Meheer portfolio', 'Meher Website'],
     template: [ '%s']
   },
 }
@@ -18,6 +18,7 @@ export default function Index() {
       <AbtMe/>
       <Skills/>
       <Projects/>
+      <ProgressBar />
       <Contact/>
     </ div>
   )
@@ -123,45 +124,34 @@ function Skills() {
 
 
 async function ProgressBar() {
-  const res = await fetch(`https://meheer.vercel.app/api/projects`,{ next: { revalidate: 10 } });
-  const post = await res.json();
-  const projects = post.data 
-  const count = {}
-  const skillset = []
-  const skillRatio = {}
-  
-  for(let i = 0; i < projects.length; i++ ) {
-    for(let t = 0; t < projects[i].tags.length; t++ ) {
-      if(skillset.includes(projects[i].tags[t])){
-        skillRatio[projects[i].tags[t]] += 1
-      } else {
-        skillset.push(projects[i].tags[t])
-        skillRatio[projects[i].tags[t]] = 1
-      }
-    }
-  }
-  
-  for(let i = 0; i < skillset.length; i++) {
-    count[skillset[i]] = (skillRatio[skillset[i]] / projects.length) * 100 
-  }
-
+  const skillset = [
+    { lang: "C Programming", image: "/c-letter.png" },
+    { lang: "C++", image: "/c-.png" },
+    { lang: "Python", image: "/file.png" },
+    { lang: "JS", image: "/js.png" },
+    { lang: "React.JS", image: "/library.png" },
+    { lang: "SQL/NoSQL", image: "/database.png" },
+    { lang: "Backend", image: "/backend.png" },
+    { lang: "API", image: "/api.png" },
+    { lang: "TypeScript", image: "/typescript.png" },
+    { lang: "Html", image: "/html-5.png" },
+    { lang: "Node.JS", image: "/nodejs.png" },
+    { lang: "Next.JS", image: "/nextjs.png" },
+    { lang: "Git", image: "/git.png" },
+  ]
   return (
     <>
       <div className='md:p-24 px-12 pb-10 font-mono' data-aos="fade-up" data-aos-delay="100">
-        <h1 className='text-6xl text-white my-5'>Projects Skill Ratio</h1>
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 grid-cols-1'>
+        <h1 className='text-6xl text-white my-5'>Skill</h1>
+        <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-5 grid-cols-2'>
             {skillset.map(s => {
               return (
-                <>
-                  <Link href={`/projects/${s}`} id={s}>
-
-                    <div className="mb-1 text-xl text-slate-400 font-bold capitalize">{s +" - "+ Math.floor(count[s]) + "%"}</div>
-                    <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
-                      <div className="bg-orange-500 h-4 rounded-full" style={{width: `${count[s]}%`}}></div>
-                    </div>
-
-                  </Link>
-                </>
+                <div className="flex p-2 justify-normal transition delay-150 duration-300w items-center hover:bg-orange-500 hover:text-white text-slate-400 rounded-md">
+                  {
+                    s.lang != 'Next.JS' ? <div className='p-1'><Image src={s.image} className="" alt={s.lang} height={50} width={50} /></div> : <div className='bg-white p-1'><Image src={s.image} alt={s.lang} height={50} width={50} /></div>
+                  }
+                  <div className="mb-1 text-xl text-center mx-5 font-bold capitalize">{ s.lang }</div>
+                </div>
               )
             })}
         </div>
@@ -216,7 +206,5 @@ async function Projects() {
         </div>
 
     </div>
-    <ProgressBar/>
-
   </>;
 }
