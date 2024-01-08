@@ -146,7 +146,7 @@ async function ProgressBar() {
         <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-5 grid-cols-2'>
             {skillset.map(s => {
               return (
-                <div className="flex p-2 justify-normal transition delay-150 duration-300w items-center hover:bg-orange-500 hover:text-white text-slate-400 rounded-md">
+                <div className="flex md:flex-row flex-col p-2 justify-normal transition delay-150 duration-300w items-center hover:bg-orange-500 hover:text-white text-slate-400 rounded-md">
                   {
                     s.lang != 'Next.JS' ? <div className='p-1'><Image src={s.image} className="" alt={s.lang} height={50} width={50} /></div> : <div className='bg-white p-1'><Image src={s.image} alt={s.lang} height={50} width={50} /></div>
                   }
