@@ -20,7 +20,7 @@ export default async function AboutMe() {
                     <div className='text-center text-5xl font-extrabold'>Meheer J</div>
                     <div className='text-center text-xl font-medium'>Bangalore  560076</div>
                     <div className='text-center text-xl font-medium'>
-                        <Link target='_blank' className='underline text-blue-700' href={'https://meheer.vercel.app'}>https://meheer.vercel.app</Link> | meherr17.j@gmail.com | +91 8310697451
+                        <Link target='_blank' className='underline text-blue-700' href={'https://meheer.vercel.app'}>https://meheer.vercel.app</Link> | meherr17.j@gmail.com | +91 8310697451 | <Link target='_blank' className='underline text-blue-700' href={'https://www.linkedin.com/in/meheer-j/'}>linkedin</Link>
                     </div>
 
                     <div className='text-lg mt-3'>

@@ -1,4 +1,5 @@
 import Image from "next/legacy/image";
+import Link from "next/link";
 
 export default function con() {
   return (
@@ -8,7 +9,7 @@ export default function con() {
           Get in touch
         </h1>
       </div>
-      <div className="p-5 bg-amber-50 gap-4 grid lg:grid-cols-4 text-center grid-cols-1">
+      <div className="p-5 bg-amber-50 gap-4 grid lg:grid-cols-5 text-center grid-cols-1">
         <div className="flex items-center text-gray-600 mx-auto">
           <Image src={'/location-pin.png'} alt={'Location'} height={50} width={50} priority/>
           <div className="ml-2 text-md tracking-wide font-semibold w-40">
@@ -24,23 +25,32 @@ export default function con() {
         </div>
 
         <div className="flex items-center mx-auto text-gray-600">
+          <Image src={'/linkedin-logo.png'} alt={'github'} height={50} width={50} priority />
+          <div className="ml-2 text-md tracking-wide font-semibold w-40">
+            <Link href="https://www.linkedin.com/in/meheer-j/" target="_blank">
+              Meheer J
+            </Link>
+          </div>
+        </div>
+
+        <div className="flex items-center mx-auto text-gray-600">
           <Image src={'/github.png'} alt={'github'} height={50} width={50} priority/>
           <div className="ml-2 text-md tracking-wide font-semibold w-40">
-            <a href="https://github.com/Meheer17" target="_blank">
+            <Link href="https://github.com/Meheer17" target="_blank">
               Meheer17
-            </a>
+            </Link>
           </div>
         </div>
 
         <div className="flex items-center mx-auto text-gray-600">
         <Image src={'/gmail.png'} alt={'gmail'} height={50} width={50} priority/>
           <div className="ml-2 text-md tracking-wide font-semibold w-40">
-            <a
+            <Link
               target="_blank"
               href="https://mail.google.com/mail/?view=cm&fs=1&to=meherr17.j@gmail.com"
             >
               meherr17.j@gmail.com
-            </a>
+            </Link>
           </div>
         </div>
       </div>
